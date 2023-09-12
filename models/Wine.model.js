@@ -25,7 +25,7 @@ const wineSchema = new Schema(
       type: String,
     },
     vintage: {
-      type: Number,
+      type: String,
     },
     winery: {
       type: String,
