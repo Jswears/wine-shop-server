@@ -7,7 +7,19 @@ router.post(
   "/new-wine",
   fileUploader.single("image"),
   async (req, res, next) => {
-    const { name, price, image, desc, vintage, winery, country } = req.body;
+    const {
+      name,
+      price,
+      image,
+      desc,
+      vintage,
+      winery,
+      country,
+      grape,
+      category,
+      region,
+      stock,
+    } = req.body;
     try {
       const newWine = await Wine.create({
         name,
@@ -17,6 +29,10 @@ router.post(
         vintage,
         winery,
         country,
+        grape,
+        category,
+        stock,
+        region,
       });
 
       if (!newWine) {
@@ -65,7 +81,19 @@ router.patch(
   "/wines/:id",
   fileUploader.single("image"),
   async (req, res, next) => {
-    const { name, price, image, desc, vintage, winery, country } = req.body;
+    const {
+      name,
+      price,
+      image,
+      desc,
+      vintage,
+      winery,
+      country,
+      grape,
+      category,
+      region,
+      stock,
+    } = req.body;
 
     const updateFields = {
       name,
@@ -74,6 +102,10 @@ router.patch(
       vintage,
       winery,
       country,
+      grape,
+      category,
+      stock,
+      region,
     };
 
     if (req.file) {
